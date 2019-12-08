@@ -8,14 +8,14 @@ soup = BeautifulSoup(page.content, 'html.parser')
 results = soup.find(id='ResultsContainer')
 # print(results.prettify())
 
-job_elems = results.find_all('section', class_='card-content')
-for job_elem in job_elems:
-    title_elem = job_elem.find('h2', class_='title')
-    company_elem = job_elem.find('div', class_='company')
-    location_elem = job_elem.find('div', class_='location')
-    if None in (title_elem, company_elem, location_elem):
+job_seeks = results.find_all('section', class_='card-content')
+for job_seek in job_seeks:
+    title_seek = job_seek.find('h2', class_='title')
+    company_seek = job_seek.find('div', class_='company')
+    location_seek = job_seek.find('div', class_='location')
+    if None in (title_seek, company_seek, location_seek):
         continue
-    print(title_elem.text.strip())
-    print(company_elem.text.strip())
-    print(location_elem.text.strip())
+    print(title_seek.text.strip())
+    print(company_seek.text.strip())
+    print(location_seek.text.strip())
     print()
